@@ -1,0 +1,56 @@
+# --- Python -------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+build/
+dist/
+*.egg-info/
+*.egg
+MANIFEST
+
+# --- Virtual Environments -----------------------------------------------------
+venv/
+.venv/
+env/
+ENV/
+.conda/
+.python-version
+
+# --- Environment and Secrets --------------------------------------------------
+.env
+.env.*
+*.env
+secrets.json
+config.local.py
+
+# --- Flask --------------------------------------------------------------------
+instance/
+flask_session/
+
+# --- IDE and Editors ----------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Testing ------------------------------------------------------------------
+.pytest_cache/
+.coverage
+htmlcov/
+test-results/
+
+# --- Logs ---------------------------------------------------------------------
+*.log
+logs/
+
+# --- Misc ---------------------------------------------------------------------
+*.bak
+*.tmp
+*.orig
+.cache/

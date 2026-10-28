@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindBridge AI — Mental Health Awareness Chatbot | IBM Granite</title>
+  <meta name="description" content="A compassionate AI mental health awareness chatbot powered by IBM Granite LLM. Empathetic conversations, mindfulness, breathing exercises, and verified crisis helplines." />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ══════════ DISCLAIMER BANNER ══════════════════════════════════════════ -->
+<div class="disclaimer-banner" id="disclaimerBanner">
+  <div class="disclaimer-inner">
+    <span class="disc-icon">⚠️</span>
+    <span><strong>Important Notice:</strong> MindBridge AI is for <strong>mental health awareness and education only</strong>. It is NOT a therapist, doctor, or crisis service. If you are in crisis, please call <strong>988</strong> (USA), <strong>116 123</strong> (UK), or your local emergency number immediately.</span>
+    <button class="disc-close" onclick="closeBanner()" aria-label="Close disclaimer">✕</button>
+  </div>
+</div>
+
+<!-- ══════════ HEADER ═════════════════════════════════════════════════════ -->
+<header class="app-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-icon">🧠</div>
+      <div class="brand-text">
+        <span class="brand-name">MindBridge AI</span>
+        <span class="brand-sub">Mental Health Awareness • IBM Granite</span>
+      </div>
+    </div>
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <button class="nav-btn active" data-section="chat"      onclick="switchTab(this,'chat')">💬 Chat</button>
+      <button class="nav-btn"        data-section="breathe"   onclick="switchTab(this,'breathe')">🌬️ Breathe</button>
+      <button class="nav-btn"        data-section="resources" onclick="switchTab(this,'resources')">📚 Resources</button>
+      <button class="nav-btn"        data-section="helplines" onclick="switchTab(this,'helplines')">🆘 Helplines</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ══════════ MAIN ════════════════════════════════════════════════════════ -->
+<main class="app-main">
+
+  <!-- ══════════ TAB 1 — CHAT ══════════════════════════════════════════════ -->
+  <section id="tab-chat" class="tab-section active" aria-label="Chat with MindBridge AI">
+    <div class="chat-layout">
+
+      <!-- Chat Panel -->
+      <div class="chat-panel card">
+        <div class="chat-top-bar">
+          <div class="ai-status">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-text">MindBridge is here for you</span>
+          </div>
+          <div class="chat-actions">
+            <button class="icon-btn" title="New conversation" onclick="clearConversation()">🔄 New</button>
+            <button class="icon-btn crisis-btn" title="Crisis helplines" onclick="switchTab(document.querySelector('[data-section=helplines]'),'helplines')">🆘 Help</button>
+          </div>
+        </div>
+
+        <div class="chat-window" id="chatWindow" role="log" aria-live="polite" aria-label="Conversation">
+          <div class="chat-msg bot-msg welcome-msg">
+            <div class="msg-avatar" aria-hidden="true">🧠</div>
+            <div class="msg-body">
+              <div class="msg-bubble">
+                <p>Hi there. I am <strong>MindBridge</strong>, a compassionate AI here to offer mental health support, education, and a safe space to be heard. 💙</p>
+                <p>I am here to listen without judgment. You can share how you are feeling, ask for coping techniques, or explore mental health topics at your own pace.</p>
+                <p>What is on your mind today?</p>
+              </div>
+              <div class="msg-time">Now</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quick-prompts" id="quickPrompts" aria-label="Suggested questions">
+          <button class="prompt-chip" onclick="sendPrompt(this)">I am feeling anxious</button>
+          <button class="prompt-chip" onclick="sendPrompt(this)">I have been feeling low lately</button>
+          <button class="prompt-chip" onclick="sendPrompt(this)">Teach me mindfulness</button>
+          <button class="prompt-chip" onclick="sendPrompt(this)">I am really stressed at work</button>
+          <button class="prompt-chip" onclick="sendPrompt(this)">I cannot sleep well</button>
+          <button class="prompt-chip" onclick="sendPrompt(this)">Give me an affirmation</button>
+        </div>
+
+        <div class="chat-input-area">
+          <textarea
+            id="chatInput"
+            rows="1"
+            placeholder="Share what is on your mind… (all conversations are private)"
+            onkeydown="handleKey(event)"
+            oninput="autoResize(this)"
+            aria-label="Type your message"
+          ></textarea>
+          <button class="send-btn" id="sendBtn" onclick="sendMessage()" aria-label="Send message">➤</button>
+        </div>
+        <p class="privacy-note">🔒 Your conversation is private and not stored after this session ends.</p>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="chat-sidebar" aria-label="Additional resources">
+
+        <div class="sidebar-card card affirmation-card">
+          <div class="card-label">💙 Daily Affirmation</div>
+          <p class="affirmation-text" id="affirmationText">Loading…</p>
+          <button class="btn-refresh" onclick="loadAffirmation()">↻ New</button>
+        </div>
+
+        <div class="sidebar-card card crisis-card">
+          <div class="card-label crisis-label">🆘 In Crisis?</div>
+          <p>If you are having thoughts of suicide or self-harm, please reach out <strong>immediately</strong>:</p>
+          <ul class="helpline-mini">
+            <li>🇺🇸 <strong>988</strong> — USA (24/7)</li>
+            <li>🇬🇧 <strong>116 123</strong> — UK (Samaritans)</li>
+            <li>🇮🇳 <strong>9152987821</strong> — India</li>
+            <li>🌍 Text <strong>HOME → 741741</strong></li>
+          </ul>
+          <a href="https://www.iasp.info/resources/Crisis_Centres/" target="_blank" rel="noopener" class="all-helplines-link">View all country helplines →</a>
+        </div>
+
+        <div class="sidebar-card card topics-card">
+          <div class="card-label">📚 Explore Topics</div>
+          <div class="topics-list" id="topicsList"><div class="loading-sm">Loading…</div></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ══════════ TAB 2 — BREATHING ══════════════════════════════════════════ -->
+  <section id="tab-breathe" class="tab-section" aria-label="Breathing and grounding exercises">
+    <div class="section-header">
+      <h2>🌬️ Breathing &amp; Grounding Exercises</h2>
+      <p>Evidence-based techniques to calm your nervous system in minutes.</p>
+    </div>
+
+    <div class="breathe-hero card">
+      <h3>Interactive Breathing Guide</h3>
+      <div class="breathe-circle-wrap">
+        <div class="breathe-circle" id="breatheCircle" aria-live="polite">
+          <div class="breathe-inner">
+            <span class="breathe-instruction" id="breatheInstruction">Press Start</span>
+            <span class="breathe-count" id="breatheCount"></span>
+          </div>
+        </div>
+      </div>
+      <div class="breathe-controls">
+        <select id="breatheMode" class="breathe-select" onchange="resetBreath()" aria-label="Select breathing mode">
+          <option value="box">Box Breathing (4-4-4-4)</option>
+          <option value="478">4-7-8 Breathing</option>
+          <option value="diaphragm">Diaphragmatic (slow)</option>
+        </select>
+        <button class="btn btn-calm" id="breatheStartBtn" onclick="toggleBreath()">▶ Start</button>
+        <button class="btn btn-outline-calm" onclick="resetBreath()">✕ Reset</button>
+      </div>
+      <p class="breathe-tip" id="breatheTip">Box breathing is used by Navy SEALs and elite athletes to instantly calm the nervous system.</p>
+    </div>
+
+    <div class="exercises-grid" id="exercisesGrid">
+      <div class="loading-sm">Loading exercises…</div>
+    </div>
+
+    <div class="grounding-card card">
+      <h3>🌿 5-4-3-2-1 Grounding Technique</h3>
+      <p class="grounding-sub">This technique anchors you to the present moment and stops a panic spiral. Do this slowly:</p>
+      <div class="grounding-steps">
+        <div class="grounding-step" onclick="highlightStep(this)" tabindex="0" role="button" aria-label="Step 5: See">
+          <span class="step-num">5</span>
+          <div><strong>Things you can SEE</strong><br/><span class="step-prompt">Look around and name 5 things visible to you right now.</span></div>
+        </div>
+        <div class="grounding-step" onclick="highlightStep(this)" tabindex="0" role="button">
+          <span class="step-num">4</span>
+          <div><strong>Things you can TOUCH</strong><br/><span class="step-prompt">Notice 4 textures or sensations around you.</span></div>
+        </div>
+        <div class="grounding-step" onclick="highlightStep(this)" tabindex="0" role="button">
+          <span class="step-num">3</span>
+          <div><strong>Things you can HEAR</strong><br/><span class="step-prompt">Tune into 3 sounds in your environment.</span></div>
+        </div>
+        <div class="grounding-step" onclick="highlightStep(this)" tabindex="0" role="button">
+          <span class="step-num">2</span>
+          <div><strong>Things you can SMELL</strong><br/><span class="step-prompt">Identify 2 scents, or recall a calming scent.</span></div>
+        </div>
+        <div class="grounding-step" onclick="highlightStep(this)" tabindex="0" role="button">
+          <span class="step-num">1</span>
+          <div><strong>Thing you can TASTE</strong><br/><span class="step-prompt">Notice 1 taste currently in your mouth.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ TAB 3 — RESOURCES ═════════════════════════════════════════ -->
+  <section id="tab-resources" class="tab-section" aria-label="Mental health resources">
+    <div class="section-header">
+      <h2>📚 Mental Health Resources</h2>
+      <p>Evidence-based information from trusted sources to support your wellbeing.</p>
+    </div>
+
+    <div class="resources-grid" id="resourcesGrid">
+      <div class="loading-sm">Loading resources…</div>
+    </div>
+
+    <div class="selfcare-card card">
+      <h3>✅ Daily Self-Care Checklist</h3>
+      <p class="selfcare-sub">Small acts of self-care compound into significant wellbeing improvements. Track yours today:</p>
+      <div class="checklist-grid">
+        <label class="check-item"><input type="checkbox" onchange="trackSelfCare()" /><span>🌅 Got 7-9 hours of sleep</span></label>
+        <label class="check-item"><input type="checkbox" onchange="trackSelfCare()" /><span>💧 Drank 8+ glasses of water</span></label>
+        <label class="check-item"><input type="checkbox" onchange="trackSelfCare()" /><span>🏃 Moved my body (any activity)</span></label>
+        <label class="check-item"><input type="checkbox" onchange="trackSelfCare()" /><span>🥗 Ate nourishing food</span></label>
+        <label class="check-item"><input type="checkbox" onchange="trackSelfCare()" /><span>🧘 Practiced mindfulness or breathing</span></label>
+        <label class="check-item"><input type="checkbox" onchange="trackSelfCare()" /><span>📵 Took a screen break</span></label>
+        <label class="check-item"><input type="checkbox" onchange="trackSelfCare()" /><span>💙 Connected with someone I care about</span></label>
+        <label class="check-item"><input type="checkbox" onchange="trackSelfCare()" /><span>📓 Expressed my feelings (journal or talk)</span></label>
+        <label class="check-item"><input type="checkbox" onchange="trackSelfCare()" /><span>🌿 Spent time in nature or outdoors</span></label>
+        <label class="check-item"><input type="checkbox" onchange="trackSelfCare()" /><span>🎨 Did something creative or joyful</span></label>
+      </div>
+      <div class="selfcare-score" id="selfcareScore">0 / 10 today</div>
+    </div>
+
+    <div class="external-resources card">
+      <h3>🔗 Trusted External Resources</h3>
+      <div class="ext-grid">
+        <a href="https://www.nimh.nih.gov" target="_blank" rel="noopener" class="ext-card">
+          <div class="ext-icon">🏛️</div><div><strong>NIMH</strong><br/><small>National Institute of Mental Health (USA)</small></div>
+        </a>
+        <a href="https://www.who.int/health-topics/mental-health" target="_blank" rel="noopener" class="ext-card">
+          <div class="ext-icon">🌍</div><div><strong>WHO Mental Health</strong><br/><small>World Health Organization</small></div>
+        </a>
+        <a href="https://www.mind.org.uk" target="_blank" rel="noopener" class="ext-card">
+          <div class="ext-icon">💚</div><div><strong>Mind UK</strong><br/><small>Mental Health Charity (UK)</small></div>
+        </a>
+        <a href="https://www.samhsa.gov" target="_blank" rel="noopener" class="ext-card">
+          <div class="ext-icon">🇺🇸</div><div><strong>SAMHSA</strong><br/><small>Substance Abuse &amp; Mental Health (USA)</small></div>
+        </a>
+        <a href="https://www.headspace.com" target="_blank" rel="noopener" class="ext-card">
+          <div class="ext-icon">🧘</div><div><strong>Headspace</strong><br/><small>Guided meditation app</small></div>
+        </a>
+        <a href="https://www.nimhans.ac.in" target="_blank" rel="noopener" class="ext-card">
+          <div class="ext-icon">🇮🇳</div><div><strong>NIMHANS</strong><br/><small>National Mental Health (India)</small></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ TAB 4 — HELPLINES ══════════════════════════════════════════ -->
+  <section id="tab-helplines" class="tab-section" aria-label="Crisis helplines">
+    <div class="section-header">
+      <h2>🆘 Crisis Helplines &amp; Support</h2>
+      <p>Verified, free, confidential helplines available 24/7. <strong>You do not have to face this alone.</strong></p>
+    </div>
+
+    <div class="crisis-hero card">
+      <h3>If you are in immediate danger, call your local emergency services: <strong>911 / 999 / 112</strong></h3>
+      <p>Crisis helplines are staffed by trained counselors who care. All calls are free and confidential.</p>
+    </div>
+
+    <div class="helplines-grid" id="helplinesGrid">
+      <div class="loading-sm">Loading helplines…</div>
+    </div>
+
+    <div class="crisis-info card">
+      <h3>💙 Understanding Crisis Support</h3>
+      <div class="crisis-info-grid">
+        <div class="crisis-info-item"><div class="info-icon">🔒</div><h4>Confidential</h4><p>Everything shared with a crisis counselor is private and protected.</p></div>
+        <div class="crisis-info-item"><div class="info-icon">🆓</div><h4>Free</h4><p>All listed helplines are available at no cost to you, 24 hours a day.</p></div>
+        <div class="crisis-info-item"><div class="info-icon">🧑‍⚕️</div><h4>Trained Support</h4><p>Staffed by trained counselors and mental health professionals.</p></div>
+        <div class="crisis-info-item"><div class="info-icon">💬</div><h4>Multiple Options</h4><p>Call, text, or chat online — whatever feels most comfortable for you.</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════ FOOTER ═════════════════════════════════════════════════════ -->
+<footer class="app-footer">
+  <div class="footer-inner">
+    <div class="footer-disclaimer">
+      <strong>⚠️ Medical Disclaimer:</strong> MindBridge AI is an educational tool for mental health awareness only.
+      It is <strong>NOT</strong> a licensed therapist, psychologist, psychiatrist, or medical professional.
+      Information provided should not replace professional diagnosis, treatment, or advice.
+      Always consult a qualified mental health professional for personalised care.
+    </div>
+    <div class="footer-privacy">
+      🔒 <strong>Privacy:</strong> Conversations are session-only and are not stored, shared, or used for training
+      after your session ends. IBM WatsonX processes messages securely per IBM's data privacy standards.
+    </div>
+    <p class="footer-credit">Built with IBM Granite LLM &amp; IBM WatsonX AI · MindBridge AI © 2025 · Powered by IBM Bob</p>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

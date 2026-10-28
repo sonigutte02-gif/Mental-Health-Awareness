@@ -1,0 +1,176 @@
+{
+  "topics": [
+    {
+      "id": "anxiety",
+      "title": "Anxiety & Anxiety Disorders",
+      "keywords": ["anxiety", "anxious", "worry", "panic", "nervous", "fear", "overthinking", "racing thoughts", "panic attack"],
+      "content": "Anxiety is a natural response to stress, but anxiety disorders involve persistent, excessive worry that interferes with daily life. Types include Generalized Anxiety Disorder (GAD), Panic Disorder, Social Anxiety Disorder, and Specific Phobias. Symptoms include restlessness, rapid heartbeat, sweating, trembling, shortness of breath, and difficulty concentrating. Evidence-based treatments include Cognitive Behavioral Therapy (CBT), mindfulness-based therapies, medication (SSRIs, SNRIs), and lifestyle changes. Grounding techniques like the 5-4-3-2-1 method can provide immediate relief.",
+      "tips": [
+        "Practice deep breathing: inhale 4 counts, hold 4, exhale 6",
+        "Try the 5-4-3-2-1 grounding technique during panic",
+        "Limit caffeine and alcohol which can worsen anxiety",
+        "Regular physical exercise significantly reduces anxiety symptoms",
+        "Keep a worry journal to examine and externalize anxious thoughts"
+      ],
+      "source": "American Psychological Association, NIMH"
+    },
+    {
+      "id": "depression",
+      "title": "Depression & Mood Disorders",
+      "keywords": ["depression", "depressed", "sad", "hopeless", "empty", "numb", "worthless", "crying", "no motivation", "low mood"],
+      "content": "Depression is more than just feeling sad — it is a serious medical condition affecting how you feel, think, and handle daily activities. Major Depressive Disorder affects over 264 million people worldwide. Symptoms include persistent sadness, loss of interest, changes in appetite and sleep, fatigue, difficulty concentrating, and feelings of worthlessness. Depression is highly treatable: 80-90% of people respond well to treatment. Options include psychotherapy (CBT), antidepressants, lifestyle changes, and support groups.",
+      "tips": [
+        "Establish a daily routine — structure provides stability",
+        "Set small, achievable goals each day to build momentum",
+        "Physical activity releases endorphins — even a 10-minute walk helps",
+        "Connect with others, even when it feels hard",
+        "Be gentle with yourself — depression is an illness, not a weakness"
+      ],
+      "source": "World Health Organization, National Institute of Mental Health"
+    },
+    {
+      "id": "stress",
+      "title": "Stress Management",
+      "keywords": ["stress", "stressed", "overwhelmed", "burned out", "exhausted", "pressure", "too much", "can't cope", "burnout"],
+      "content": "Stress is the body's response to demands or threats. Short-term stress can be motivating, but chronic stress damages physical and mental health. Signs include irritability, fatigue, difficulty sleeping, muscle tension, and headaches. Effective stress management includes time management, relaxation techniques, regular exercise, adequate sleep, social support, and setting healthy boundaries.",
+      "tips": [
+        "Try the STOP technique: Stop, Take a breath, Observe, Proceed mindfully",
+        "Prioritize tasks using the Eisenhower Matrix (urgent/important)",
+        "Schedule regular breaks using the Pomodoro technique",
+        "Practice progressive muscle relaxation before bed",
+        "Learn to say 'no' — boundaries protect your mental energy"
+      ],
+      "source": "American Institute of Stress, Mayo Clinic"
+    },
+    {
+      "id": "mindfulness",
+      "title": "Mindfulness & Meditation",
+      "keywords": ["mindfulness", "meditation", "present", "calm", "breathe", "relax", "peaceful", "mindful"],
+      "content": "Mindfulness is the practice of intentionally paying attention to the present moment without judgment. Research shows it reduces anxiety, depression, and stress while improving focus, sleep, and emotional regulation. Mindfulness-Based Stress Reduction (MBSR) has strong scientific backing. Even 5-10 minutes of daily practice creates measurable brain changes.",
+      "tips": [
+        "Start with just 5 minutes of mindful breathing daily",
+        "Use the RAIN technique: Recognize, Allow, Investigate, Nurture",
+        "Try a body scan: focus attention from feet to head noticing sensations",
+        "Practice mindful eating — eat slowly and savor each bite",
+        "Try loving-kindness meditation: wish well to yourself, then others"
+      ],
+      "source": "Jon Kabat-Zinn MBSR Program, Harvard Medical School"
+    },
+    {
+      "id": "sleep",
+      "title": "Sleep & Mental Health",
+      "keywords": ["sleep", "insomnia", "tired", "fatigue", "can't sleep", "restless", "nightmares", "sleep problems"],
+      "content": "Sleep and mental health have a bidirectional relationship — poor sleep worsens mental health, and mental health conditions disrupt sleep. Adults need 7-9 hours of quality sleep. Sleep deprivation increases anxiety, irritability, and risk of depression. Cognitive Behavioral Therapy for Insomnia (CBT-I) is the gold-standard treatment and is more effective long-term than sleep medication.",
+      "tips": [
+        "Maintain a consistent sleep schedule, even on weekends",
+        "Create a relaxing pre-sleep routine: no screens 1 hour before bed",
+        "Keep your bedroom cool (18-20°C), dark, and quiet",
+        "Avoid caffeine after 2 PM and alcohol within 3 hours of bedtime",
+        "Try the 4-7-8 breathing technique to fall asleep"
+      ],
+      "source": "National Sleep Foundation, American Academy of Sleep Medicine"
+    },
+    {
+      "id": "self_care",
+      "title": "Self-Care Practices",
+      "keywords": ["self-care", "self care", "take care", "wellness", "healthy habits", "routine", "balance"],
+      "content": "Self-care is any activity done deliberately to take care of mental, emotional, and physical health. It is not selfish — it is essential. Good self-care includes physical care (exercise, nutrition, sleep), emotional care (journaling, therapy), social care (meaningful connections), mental care (learning, creativity), and spiritual care (purpose, values, nature).",
+      "tips": [
+        "Create a personalized self-care menu with activities that recharge you",
+        "Schedule self-care like an appointment — make it non-negotiable",
+        "Practice the HALT check: Hungry, Angry, Lonely, or Tired?",
+        "Journaling 3 gratitudes daily rewires the brain toward positivity",
+        "Engage in creative activities — art, music, writing, cooking"
+      ],
+      "source": "World Health Organization, Psychology Today"
+    },
+    {
+      "id": "crisis",
+      "title": "Mental Health Crisis & Suicide Prevention",
+      "keywords": ["suicidal", "suicide", "kill myself", "end my life", "don't want to live", "self-harm", "hurt myself", "crisis", "hopeless", "no point", "give up"],
+      "content": "A mental health crisis requires immediate attention. If you or someone you know is in crisis, please reach out for help immediately. You are not alone, and help is available. Crisis support is free, confidential, and available 24/7. Suicidal thoughts are a symptom of treatable conditions — most people who receive proper care recover and go on to live fulfilling lives.",
+      "source": "WHO, IASP, National Suicide Prevention Lifeline"
+    },
+    {
+      "id": "relationships",
+      "title": "Relationships & Social Support",
+      "keywords": ["lonely", "loneliness", "relationship", "breakup", "isolation", "alone", "friends", "family", "social", "connection"],
+      "content": "Social connection is a fundamental human need. Loneliness and social isolation increase risk of depression, anxiety, and physical health problems. Healthy relationships involve mutual respect, trust, open communication, and appropriate boundaries. Quality matters more than quantity — even one meaningful connection can make a significant difference.",
+      "tips": [
+        "Reach out to one person today — a text, call, or message",
+        "Join community groups aligned with your interests",
+        "Volunteer work combats loneliness and builds purpose",
+        "Practice active listening to deepen existing relationships",
+        "Consider therapy or support groups if social anxiety is a barrier"
+      ],
+      "source": "American Psychological Association"
+    },
+    {
+      "id": "trauma",
+      "title": "Trauma & PTSD",
+      "keywords": ["trauma", "ptsd", "flashback", "nightmare", "abuse", "traumatic", "triggered", "hypervigilant"],
+      "content": "Trauma is an emotional response to a deeply distressing event. PTSD can develop after experiencing or witnessing traumatic events. Symptoms include flashbacks, nightmares, severe anxiety, and avoidance behaviors. Evidence-based treatments include EMDR, Trauma-Focused CBT, and Prolonged Exposure therapy. Healing is possible and it is not linear.",
+      "tips": [
+        "Practice grounding techniques to manage flashbacks",
+        "Work with a trauma-specialized therapist",
+        "EMDR and TF-CBT have strong evidence for trauma treatment",
+        "Trauma support groups connect you with others who understand",
+        "Be patient with yourself — trauma healing is not linear"
+      ],
+      "source": "SAMHSA, International Society for Traumatic Stress Studies"
+    },
+    {
+      "id": "breathing_exercises",
+      "title": "Breathing Techniques for Immediate Relief",
+      "keywords": ["breathe", "breathing", "breath", "calm down", "panic", "exercise", "technique"],
+      "content": "Controlled breathing activates the parasympathetic nervous system, reducing the fight-or-flight stress response within minutes. These techniques are evidence-based and can be used anywhere, anytime.",
+      "exercises": [
+        {
+          "name": "Box Breathing (4-4-4-4)",
+          "steps": ["Inhale slowly for 4 counts", "Hold for 4 counts", "Exhale slowly for 4 counts", "Hold for 4 counts", "Repeat 4 times"],
+          "use_for": "Anxiety, panic, stress — used by Navy SEALs"
+        },
+        {
+          "name": "4-7-8 Breathing",
+          "steps": ["Inhale through nose for 4 counts", "Hold breath for 7 counts", "Exhale through mouth for 8 counts"],
+          "use_for": "Insomnia, anxiety, anger management"
+        },
+        {
+          "name": "Diaphragmatic Breathing",
+          "steps": ["Place hand on belly", "Breathe in deeply, belly rises", "Breathe out slowly, belly falls", "Repeat for 5 minutes"],
+          "use_for": "General stress, chronic anxiety"
+        }
+      ],
+      "source": "Cleveland Clinic, Harvard Medical School"
+    }
+  ],
+  "global_helplines": [
+    {"country": "International", "name": "IASP Crisis Centres Directory", "contact": "https://www.iasp.info/resources/Crisis_Centres/"},
+    {"country": "USA", "name": "988 Suicide & Crisis Lifeline", "contact": "Call or Text 988"},
+    {"country": "USA", "name": "Crisis Text Line", "contact": "Text HOME to 741741"},
+    {"country": "UK", "name": "Samaritans", "contact": "116 123"},
+    {"country": "UK", "name": "Mind Infoline", "contact": "0300 123 3393"},
+    {"country": "India", "name": "iCall (TISS)", "contact": "9152987821"},
+    {"country": "India", "name": "Vandrevala Foundation", "contact": "1860-2662-345"},
+    {"country": "India", "name": "NIMHANS Helpline", "contact": "080-46110007"},
+    {"country": "Canada", "name": "Crisis Services Canada", "contact": "1-833-456-4566"},
+    {"country": "Australia", "name": "Lifeline Australia", "contact": "13 11 14"},
+    {"country": "Australia", "name": "Beyond Blue", "contact": "1300 22 4636"},
+    {"country": "Germany", "name": "Telefonseelsorge", "contact": "0800 111 0 111"},
+    {"country": "New Zealand", "name": "Lifeline NZ", "contact": "0800 543 354"},
+    {"country": "Singapore", "name": "SOS (Samaritans of Singapore)", "contact": "1800-221-4444"},
+    {"country": "South Africa", "name": "SADAG", "contact": "0800 456 789"}
+  ],
+  "affirmations": [
+    "You are stronger than you know, and braver than you feel.",
+    "It is okay not to be okay. Reaching out is an act of courage.",
+    "Your feelings are valid. You deserve compassion and care.",
+    "Every storm runs out of rain. This feeling will pass.",
+    "You are not your thoughts. You are the one observing them.",
+    "Small steps still move you forward. Progress, not perfection.",
+    "You have survived every hard day so far. That is strength.",
+    "Healing is not linear. Be patient and gentle with yourself.",
+    "You matter. Your life has value and meaning.",
+    "It is okay to ask for help — that is wisdom, not weakness."
+  ]
+}

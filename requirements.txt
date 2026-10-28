@@ -1,0 +1,12 @@
+# MindBridge AI — Mental Health Awareness Chatbot
+# Python Dependencies
+# Install: pip install -r requirements.txt
+
+# ─── Web Framework ────────────────────────────────────────────────────────────
+flask>=3.0.0
+
+# ─── IBM WatsonX AI SDK (Granite LLM) ────────────────────────────────────────
+ibm-watsonx-ai>=0.2.6
+
+# ─── Environment Variable Management ─────────────────────────────────────────
+python-dotenv>=1.0.0
